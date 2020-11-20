@@ -1,23 +1,30 @@
-import {EventEmitter} from '@angular/core';
-import {Recipe} from './recipe.model'
+import { EventEmitter } from "@angular/core";
+import { Ingredient } from "../shared/ingredient.model";
+import { Recipe } from "./recipe.model";
 
 export class RecipeService {
   recipeSelected = new EventEmitter<Recipe>();
 
   private recipes: Recipe[] = [
     new Recipe(
-      "A test recipe",
-      "This is simply a test",
-      "https://cdn.apartmenttherapy.info/image/upload/f_jpg,q_auto:eco,c_fill,g_auto,w_1500,ar_16:9/k%2FPhoto%2FRecipes%2F2020-02-Kielbasa-and-Cabbage-Skillet%2Fkielbasa2"
+      "Tasty Schnitzel",
+      "A super tasty Schnitzel - just awesome!",
+      "https://natashaskitchen.com/wp-content/uploads/2016/02/Pork-Schnitzel-Recipe-5-500x500.jpg",
+      [new Ingredient("Meat", 1), new Ingredient("French fries", 20)]
     ),
     new Recipe(
-      "Another test recipe",
-      "This is simply a test",
-      "https://cdn.apartmenttherapy.info/image/upload/f_jpg,q_auto:eco,c_fill,g_auto,w_1500,ar_16:9/k%2FPhoto%2FRecipes%2F2020-02-Kielbasa-and-Cabbage-Skillet%2Fkielbasa2"
+      "Big fat Burger",
+      "What else you need to say?",
+      "https://tmbidigitalassetsazure.blob.core.windows.net/rms3-prod/attachments/37/1200x1200/Scrum-Delicious-Burgers_EXPS_CHMZ19_824_B10_30_2b.jpg",
+      [
+        new Ingredient("Bread", 1),
+        new Ingredient("Tomatoes", 3),
+        new Ingredient("Meat", 2),
+      ]
     ),
   ];
 
   getRecipes() {
-      return this.recipes.slice();
+    return this.recipes.slice();
   }
 }
